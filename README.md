@@ -1,14 +1,91 @@
-# Electronic Helper
 
-<b>Xmarin.android electronics eduction tool</b>
+# 🔧 Electronic Helper
 
-Electronic Helper is a very small tool that design to help day today activities for electronic engineers and students. It brings all electronic components to one place. Also it gives basic ideas about electronic components. There are few calculation also included to simplify the mathematical tasks.
+**Electronic Helper** is a compact Xamarin.Android application designed to assist electronics engineers, students, and educators with day-to-day tasks. It consolidates essential component information and basic calculations into one easy-to-use mobile tool — no internet required!
 
-This app will help to electronic workers, students and teachers as a tool and educational application. There are no internet connection needed to run this app. application is very small as 10 MB. There are no hidden permissions or battery draining services. 
+---
 
-<a href="https://play.google.com/store/apps/details?id=lk.stechbuzz.electronic">
-<img border="0" alt="On Google Play" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/1280px-Get_it_on_Google_play.svg.png" width="200" height="70">
-</a>
+## 🎯 Purpose
 
+This app serves as:
 
+- 📘 A reference guide for electronic components
+- 🧮 A calculator for common electronics formulas
+- 🧰 A utility for students, teachers, and technicians
 
+---
+
+## 🌟 Features
+
+- 📚 Learn about basic electronic components
+- 🧮 Perform quick calculations (e.g., Ohm’s Law, resistor values)
+- 📱 Lightweight Android app (~10 MB)
+- 🔒 No hidden permissions or battery-draining services
+- 🌐 Works fully offline
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Android device or emulator
+- Xamarin.Android development environment (Visual Studio)
+
+### How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/supunsarachitha/Electronic_Helper.git
+   ```
+
+2. Open the project in Visual Studio.
+
+3. Build and deploy to your Android device.
+
+---
+
+## 📁 Project Structure
+
+```
+Electronic_Helper/
+├── ElectronicHelper/         # Main app source
+│   ├── Activities/           # UI screens
+│   ├── Resources/            # Layouts and assets
+│   └── Calculators/          # Logic for electronic formulas
+├── README.md                 # Project documentation
+├── .gitattributes            # Git attributes
+└── .gitignore                # Git settings
+```
+
+---
+
+## 🧪 Technologies Used
+
+- **Platform**: Xamarin.Android
+- **UI**: Native Android layouts
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📬 Play Store
+
+You can find the app on the [Google Play Store](https://play.google.com/store/apps/details?id=lk.stechbuzz.electronichelper) for easy installation.
+
+---
+
+## 👤 Author
+
+Created by [Supun Sarachitha](https://github.com/supunsarachitha). Feel free to fork, contribute, or reach out!
+
+---
+
+## 🙌 Contributions
+
+Pull requests are welcome! If you’d like to add new calculators, improve UI/UX, or expand the component library, go ahead and submit a PR.
+```
