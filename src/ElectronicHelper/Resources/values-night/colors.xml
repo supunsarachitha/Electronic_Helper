@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="md_primary">#6EDBB5</color>
+	<color name="md_on_primary">#003829</color>
+	<color name="md_primary_container">#00513C</color>
+	<color name="md_on_primary_container">#8BF8D0</color>
+	<color name="md_secondary">#D9C84D</color>
+	<color name="md_on_secondary">#373100</color>
+	<color name="md_secondary_container">#504700</color>
+	<color name="md_on_secondary_container">#F6E466</color>
+	<color name="md_tertiary">#A9C7FF</color>
+	<color name="md_on_tertiary">#07305F</color>
+	<color name="md_tertiary_container">#264777</color>
+	<color name="md_on_tertiary_container">#D6E3FF</color>
+	<color name="md_error">#FFB4AB</color>
+	<color name="md_on_error">#690005</color>
+	<color name="md_error_container">#93000A</color>
+	<color name="md_on_error_container">#FFDAD6</color>
+	<color name="md_surface">#0F1512</color>
+	<color name="md_on_surface">#DEE4DF</color>
+	<color name="md_surface_variant">#404944</color>
+	<color name="md_on_surface_variant">#BFC9C2</color>
+	<color name="md_outline">#89938D</color>
+	<color name="md_outline_variant">#404944</color>
+	<color name="md_surface_container_lowest">#0A0F0D</color>
+	<color name="md_surface_container_low">#171D1A</color>
+	<color name="md_surface_container">#1B211E</color>
+	<color name="md_surface_container_high">#252B28</color>
+	<color name="md_surface_container_highest">#303633</color>
+	<color name="md_inverse_surface">#DEE4DF</color>
+	<color name="md_inverse_on_surface">#2B322E</color>
+	<color name="md_inverse_primary">#006C51</color>
+
+	<color name="logic_high">#5BD67A</color>
+	<color name="logic_low">#5F6A65</color>
+	<color name="resistor_body">#CDB68C</color>
+	<color name="resistor_lead">#8F9A95</color>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/root"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/app_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:liftOnScroll="true">
+
+		<com.google.android.material.appbar.MaterialToolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			app:navigationIcon="@drawable/ic_arrow_back"
+			app:navigationContentDescription="@string/navigate_up" />
+
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<androidx.core.widget.NestedScrollView
+		android:id="@+id/scroll"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:clipToPadding="false"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="16dp">
+
+			<lk.stechbuzz.electronic.ResistorView
+				android:id="@+id/resistor_view"
+				android:layout_width="match_parent"
+				android:layout_height="112dp"
+				android:layout_marginBottom="8dp" />
+
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/result_card"
+				style="@style/Widget.Material3.CardView.Filled"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				app:cardBackgroundColor="?attr/colorSurfaceContainerHigh">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:paddingHorizontal="16dp"
+					android:paddingVertical="12dp">
+
+					<LinearLayout
+						android:id="@+id/result_lines"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="vertical" />
+
+					<TextView
+						android:id="@+id/result_message"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:paddingVertical="4dp"
+						android:textAppearance="?attr/textAppearanceBodyMedium"
+						android:textColor="?attr/colorOnSurfaceVariant" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:text="@string/resistor_bands_label"
+				android:textAppearance="?attr/textAppearanceLabelLarge"
+				android:textColor="?attr/colorOnSurfaceVariant" />
+
+			<com.google.android.material.chip.ChipGroup
+				android:id="@+id/band_count_chips"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="8dp"
+				app:selectionRequired="true"
+				app:singleSelection="true" />
+
+			<LinearLayout
+				android:id="@+id/fields"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical" />
+
+			<com.google.android.material.textfield.TextInputLayout
+				android:id="@+id/value_layout"
+				style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:hint="@string/resistor_value_hint"
+				app:endIconMode="clear_text"
+				app:suffixText="Ω">
+
+				<com.google.android.material.textfield.TextInputEditText
+					android:id="@+id/value_input"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:imeOptions="actionDone"
+					android:inputType="text|textNoSuggestions|textVisiblePassword"
+					android:maxLines="1" />
+			</com.google.android.material.textfield.TextInputLayout>
+
+		</LinearLayout>
+	</androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

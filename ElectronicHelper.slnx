@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ElectronicHelper.Core/ElectronicHelper.Core.csproj" />
+    <Project Path="src/ElectronicHelper/ElectronicHelper.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ElectronicHelper.Core.Tests/ElectronicHelper.Core.Tests.csproj" />
+  </Folder>
+</Solution>

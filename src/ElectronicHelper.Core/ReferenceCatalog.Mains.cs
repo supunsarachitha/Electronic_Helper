@@ -136,7 +136,7 @@ public static partial class ReferenceCatalog
                 ["Yemen", "230 V", "50 Hz", "A, D, G"],
                 ["Zambia", "230 V", "50 Hz", "C, D, G"],
                 ["Zimbabwe", "240 V", "50 Hz", "D, G"]),
-                Weights: [3, 2, 1.6f, 2])),
+                Weights: [3, 1.8f, 2.3f, 2])),
         ],
         Searchable: true,
         Footnote: "Nominal values, which can vary by region and by building. Check the rating plate and the local supply before connecting equipment. Eastern Japan runs at 50 Hz and western Japan at 60 Hz.");

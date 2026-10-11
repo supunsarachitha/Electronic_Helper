@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Electronic Helper</string>
+
+	<string name="search_hint">Search tools</string>
+	<string name="filter_all">All</string>
+	<string name="filter_favorites">Favourites</string>
+	<string name="section_favorites">Favourites</string>
+	<string name="no_matches">No tools match your search.</string>
+	<string name="no_favorites">Tap the star beside a tool to keep it here.</string>
+	<string name="add_favorite">Add %1$s to favourites</string>
+	<string name="remove_favorite">Remove %1$s from favourites</string>
+
+	<string name="menu_share_app">Share this app</string>
+	<string name="menu_rate">Rate on Google Play</string>
+	<string name="menu_feedback">Send feedback</string>
+	<string name="menu_privacy">Privacy policy</string>
+	<string name="menu_about">About</string>
+	<string name="menu_reset">Reset</string>
+	<string name="menu_share_result">Share result</string>
+
+	<string name="navigate_up">Back</string>
+	<string name="unit_label">Unit</string>
+	<string name="optional_suffix">%1$s (optional)</string>
+	<string name="not_a_number">Enter a number</string>
+	<string name="copied">Copied %1$s</string>
+	<string name="nothing_to_share">Fill in the calculator first.</string>
+	<string name="no_app_found">No app on this device can open that.</string>
+	<string name="opens_in_browser">Opens %1$s in your browser</string>
+	<string name="search_rows_hint">Search this table</string>
+	<string name="no_rows">Nothing matches your search.</string>
+
+	<string name="share_app_text">Electronic Helper: calculators and reference tables for electronics. %1$s</string>
+	<string name="feedback_subject">Electronic Helper %1$s feedback</string>
+	<string name="about_message">Version %1$s\n\nCalculators and reference tables for electronics students, hobbyists and engineers.\n\nWorks offline. No adverts, no accounts, and nothing about you is collected.\n\nResults are a guide. Check them against the datasheet before you build anything that matters.</string>
+	<string name="ok">OK</string>
+
+	<string name="resistor_bands_label">Number of bands</string>
+	<string name="resistor_band_count">%1$d bands</string>
+	<string name="resistor_value_hint">Or type a value, such as 4.7k</string>
+	<string name="resistor_digit">Digit %1$d</string>
+	<string name="resistor_multiplier">Multiplier</string>
+	<string name="resistor_tolerance">Tolerance</string>
+	<string name="resistor_tempco">Temperature coefficient</string>
+	<string name="resistor_result_resistance">Resistance</string>
+	<string name="resistor_result_range">Acceptable range</string>
+	<string name="resistor_result_tempco">Temperature coefficient</string>
+	<string name="resistor_view_description">Resistor with bands: %1$s</string>
+	<string name="resistor_value_unmarkable">That value cannot be shown with colour bands.</string>
+
+	<string name="gate_input_a">Input A</string>
+	<string name="gate_input_b">Input B</string>
+	<string name="gate_output">Output Q is %1$s</string>
+	<string name="gate_high">1 (high)</string>
+	<string name="gate_low">0 (low)</string>
+	<string name="gate_truth_table">Truth table</string>
+	<string name="gate_view_description">%1$s gate symbol. Output is %2$s.</string>
+</resources>

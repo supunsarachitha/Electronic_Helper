@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<string name="app_name">ActionBar Tabs</string>
-	<string name="whatson_tab_label">Main Components</string>
-	<string name="speakers_tab_label">Electronic Calculations</string>
-	<string name="sessions_tab_label">Cable Connectors and Plugs</string>
-  <string name="Logic_Geate_Label">Logic Gates</string>
-  <string name="Arduino_label">Arduino</string><string name="ebooks_label">Ebooks</string>
-</resources>

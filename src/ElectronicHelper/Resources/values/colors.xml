@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Brand colours, taken from the green circuit-board launcher icon. -->
+	<color name="brand_board">#4FAE90</color>
+	<color name="brand_trace">#FFD54F</color>
+	<color name="brand_chip">#3B3F5C</color>
+	<color name="brand_chip_light">#565B80</color>
+	<color name="brand_led">#69E07E</color>
+
+	<color name="md_primary">#006C51</color>
+	<color name="md_on_primary">#FFFFFF</color>
+	<color name="md_primary_container">#8BF8D0</color>
+	<color name="md_on_primary_container">#002117</color>
+	<color name="md_secondary">#6B5F00</color>
+	<color name="md_on_secondary">#FFFFFF</color>
+	<color name="md_secondary_container">#F6E466</color>
+	<color name="md_on_secondary_container">#201C00</color>
+	<color name="md_tertiary">#3F5F90</color>
+	<color name="md_on_tertiary">#FFFFFF</color>
+	<color name="md_tertiary_container">#D6E3FF</color>
+	<color name="md_on_tertiary_container">#001B3D</color>
+	<color name="md_error">#BA1A1A</color>
+	<color name="md_on_error">#FFFFFF</color>
+	<color name="md_error_container">#FFDAD6</color>
+	<color name="md_on_error_container">#410002</color>
+	<color name="md_surface">#F5FBF6</color>
+	<color name="md_on_surface">#171D1A</color>
+	<color name="md_surface_variant">#DBE5DE</color>
+	<color name="md_on_surface_variant">#404944</color>
+	<color name="md_outline">#707973</color>
+	<color name="md_outline_variant">#BFC9C2</color>
+	<color name="md_surface_container_lowest">#FFFFFF</color>
+	<color name="md_surface_container_low">#EFF5F0</color>
+	<color name="md_surface_container">#E9EFEA</color>
+	<color name="md_surface_container_high">#E4EAE5</color>
+	<color name="md_surface_container_highest">#DEE4DF</color>
+	<color name="md_inverse_surface">#2B322E</color>
+	<color name="md_inverse_on_surface">#ECF2ED</color>
+	<color name="md_inverse_primary">#6EDBB5</color>
+
+	<!-- Logic levels, readable on both themes. -->
+	<color name="logic_high">#1B8A3A</color>
+	<color name="logic_low">#8A9590</color>
+	<color name="resistor_body">#E6CFA5</color>
+	<color name="resistor_lead">#8F9A95</color>
+</resources>
