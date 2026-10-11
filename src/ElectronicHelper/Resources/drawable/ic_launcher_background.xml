@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+	android:width="108dp"
+	android:height="108dp"
+	android:viewportWidth="108"
+	android:viewportHeight="108">
+	<path android:fillColor="@color/brand_board" android:pathData="M0,0h108v108h-108z" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M44,36V22L30,8V0" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M54,36V0" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M64,36V22L78,8V0" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M44,72V86L30,100V108" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M54,72V108" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M64,72V86L78,100V108" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M36,44H22L8,30H0" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M36,54H0" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M36,64H22L8,78H0" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M72,44H86L100,30H108" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M72,54H108" />
+	<path android:strokeColor="@color/brand_trace" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M72,64H86L100,78H108" />
+</vector>

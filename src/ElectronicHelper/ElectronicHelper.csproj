@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ElectronicHelper</RootNamespace>
+
+    <!-- The Play Store identity. The ID must never change; the version code must rise with every upload. -->
+    <ApplicationId>lk.stechbuzz.electronic</ApplicationId>
+    <ApplicationVersion>11</ApplicationVersion>
+    <ApplicationDisplayVersion>2.0.0</ApplicationDisplayVersion>
+
+    <!-- Play requires 64-bit code. 32-bit ARM is kept for older phones. -->
+    <RuntimeIdentifiers>android-arm64;android-arm;android-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <!-- Play accepts only app bundles. The APK is for testing the release build on a device. -->
+    <AndroidPackageFormats>aab;apk</AndroidPackageFormats>
+    <AndroidLinkTool>r8</AndroidLinkTool>
+  </PropertyGroup>
+
+  <!--
+    Release signing. The keystore details stay out of source control: they are in signing.local.props (git-ignored;
+    see signing.local.props.example) or come from the command line, e.g. -p:AndroidSigningStorePass=env:KEYSTORE_PASS.
+    Without them (as in CI) a Release build is signed with the debug key, which no store accepts.
+  -->
+  <Import Project="signing.local.props" Condition="Exists('signing.local.props')" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release' And '$(AndroidSigningKeyStore)' != ''">
+    <AndroidKeyStore>true</AndroidKeyStore>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.14.0.6" />
+    <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ElectronicHelper.Core\ElectronicHelper.Core.csproj" />
+  </ItemGroup>
+
+</Project>

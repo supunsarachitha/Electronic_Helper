@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="preferExternal" package="lk.stechbuzz.electronic" android:versionCode="10" android:versionName="1.9">
-	<application android:label="ElectronicHelper" android:icon="@drawable/Icon" android:theme="@style/MyTheme"></application>
-	<uses-sdk android:minSdkVersion="18" android:targetSdkVersion="27" />
-</manifest>

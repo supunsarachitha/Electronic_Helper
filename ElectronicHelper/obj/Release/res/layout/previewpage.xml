@@ -1,1 +1,0 @@
-<ScrollView android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><ImageView android:id="@+id/ImageViewBox" android:layout_width="wrap_content" android:layout_height="wrap_content" /></ScrollView>

@@ -1,0 +1,36 @@
+# Build output
+bin/
+obj/
+artifacts/
+publish/
+
+# IDE state
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+.DS_Store
+
+# NuGet
+packages/
+*.nupkg
+
+# Test results
+TestResults/
+*.trx
+coverage*.xml
+
+# Android signing material and packaged apps - never commit these.
+# signing.local.props holds the keystore passwords.
+signing.local.props
+*.keystore
+*.jks
+*.p12
+*.pfx
+keystore.properties
+signing.props
+*.apk
+*.aab
+*.idsig

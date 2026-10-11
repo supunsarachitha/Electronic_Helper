@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- No <uses-permission> entries: the app works offline and asks for nothing. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<application
+		android:label="@string/app_name"
+		android:icon="@mipmap/ic_launcher"
+		android:roundIcon="@mipmap/ic_launcher"
+		android:theme="@style/Theme.ElectronicHelper"
+		android:supportsRtl="true"
+		android:allowBackup="true"
+		android:enableOnBackInvokedCallback="true" />
+
+	<!-- Lets the app hand web links and feedback e-mails to whichever apps the user has installed. -->
+	<queries>
+		<intent>
+			<action android:name="android.intent.action.VIEW" />
+			<category android:name="android.intent.category.BROWSABLE" />
+			<data android:scheme="https" />
+		</intent>
+		<intent>
+			<action android:name="android.intent.action.SENDTO" />
+			<data android:scheme="mailto" />
+		</intent>
+	</queries>
+</manifest>
