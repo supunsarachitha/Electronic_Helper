@@ -25,7 +25,7 @@
 
   <!--
     Release signing reads the keystore from the environment so that nothing secret is committed.
-    See docs/RELEASING.md. Without these variables a release build is signed with the debug key.
+    See RELEASING.md. Without these variables a release build is signed with the debug key.
   -->
   <PropertyGroup Condition="'$(Configuration)' == 'Release' And '$(ANDROID_KEYSTORE_PATH)' != ''">
     <AndroidKeyStore>true</AndroidKeyStore>

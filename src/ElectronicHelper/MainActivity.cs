@@ -1,6 +1,7 @@
 using Android.Content;
 using Android.Content.Res;
 using Android.Views;
+using AndroidX.Core.View;
 using AndroidX.Core.Widget;
 using AndroidX.RecyclerView.Widget;
 using ElectronicHelper.Core;
@@ -47,8 +48,8 @@ public class MainActivity : BaseActivity
             Refresh();
         });
 
-        // One column on phones, more on tablets and unfolded foldables.
-        var columns = Math.Max(1, Resources!.Configuration!.ScreenWidthDp / 400);
+        // Two cards across on phones, more on tablets and unfolded foldables.
+        var columns = Math.Max(2, Resources!.Configuration!.ScreenWidthDp / 190);
         var list = FindViewById<RecyclerView>(Resource.Id.tool_list)!;
         var grid = new GridLayoutManager(this, columns);
         grid.SetSpanSizeLookup(new SectionSpanLookup(_adapter, columns));
@@ -62,6 +63,7 @@ public class MainActivity : BaseActivity
             AddFilter(chips, ToolCatalog.CategoryName(category), (int)category);
 
         _search = FindViewById<TextInputEditText>(Resource.Id.search)!;
+        _search.Hint = this.Format(Resource.String.search_hint, ToolCatalog.All.Count);
         _search.AfterTextChanged += (_, _) => Refresh();
 
         Refresh();
@@ -99,12 +101,12 @@ public class MainActivity : BaseActivity
             var starred = ToolCatalog.All.Where(tool => favorites.Contains(tool.Id)).ToList();
             if (starred.Count > 0)
             {
-                rows.Add(new SectionRow(GetString(Resource.String.section_favorites)));
+                rows.Add(new SectionRow(GetString(Resource.String.section_favorites), starred.Count));
                 rows.AddRange(starred.Select(tool => new ToolRow(tool)));
             }
             foreach (var group in tools.GroupBy(tool => tool.Category))
             {
-                rows.Add(new SectionRow(ToolCatalog.CategoryName(group.Key)));
+                rows.Add(new SectionRow(ToolCatalog.CategoryName(group.Key), group.Count()));
                 rows.AddRange(group.Select(tool => new ToolRow(tool)));
             }
         }
@@ -182,7 +184,7 @@ public class MainActivity : BaseActivity
 
 internal abstract record Row;
 
-internal sealed record SectionRow(string Title) : Row;
+internal sealed record SectionRow(string Title, int Count) : Row;
 
 internal sealed record ToolRow(Tool Tool) : Row;
 
@@ -230,6 +232,7 @@ internal sealed class ToolAdapter(Action<Tool> open, Action<Tool> toggleFavorite
         {
             case SectionRow section:
                 ((SectionHolder)holder).Title.Text = section.Title;
+                ((SectionHolder)holder).Count.Text = section.Count.ToString();
                 break;
             case ToolRow row:
                 ((ToolHolder)holder).Bind(row.Tool, _favorites.Contains(row.Tool.Id));
@@ -239,7 +242,9 @@ internal sealed class ToolAdapter(Action<Tool> open, Action<Tool> toggleFavorite
 
     private sealed class SectionHolder(View view) : RecyclerView.ViewHolder(view)
     {
-        public TextView Title { get; } = (TextView)view;
+        public TextView Title { get; } = view.FindViewById<TextView>(Resource.Id.section_title)!;
+
+        public TextView Count { get; } = view.FindViewById<TextView>(Resource.Id.section_count)!;
     }
 
     private sealed class ToolHolder : RecyclerView.ViewHolder
@@ -263,7 +268,10 @@ internal sealed class ToolAdapter(Action<Tool> open, Action<Tool> toggleFavorite
         public void Bind(Tool tool, bool isFavorite)
         {
             var context = ItemView.Context!;
+            var (container, onContainer) = context.CategoryColors(tool.Category);
             _glyph.Text = tool.Glyph;
+            _glyph.SetTextColor(onContainer);
+            ViewCompat.SetBackgroundTintList(_glyph, ColorStateList.ValueOf(container));
             _title.Text = tool.Title;
             _subtitle.Text = tool.Subtitle;
 

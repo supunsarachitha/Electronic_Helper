@@ -38,6 +38,22 @@
 	<color name="md_inverse_on_surface">#ECF2ED</color>
 	<color name="md_inverse_primary">#6EDBB5</color>
 
+	<!-- One accent per tool category, used for the icon tiles. -->
+	<color name="cat_basics_container">#C9F1E2</color>
+	<color name="cat_basics_on_container">#00513C</color>
+	<color name="cat_components_container">#FFE8A3</color>
+	<color name="cat_components_on_container">#5C4300</color>
+	<color name="cat_signals_container">#D6E3FF</color>
+	<color name="cat_signals_on_container">#0B3A75</color>
+	<color name="cat_power_container">#FFDBCC</color>
+	<color name="cat_power_on_container">#7A2E0E</color>
+	<color name="cat_digital_container">#EBDCFF</color>
+	<color name="cat_digital_on_container">#4A2A82</color>
+	<color name="cat_connectors_container">#C5ECF4</color>
+	<color name="cat_connectors_on_container">#004E5A</color>
+	<color name="cat_learn_container">#FFD9E4</color>
+	<color name="cat_learn_on_container">#7A2949</color>
+
 	<!-- Logic levels, readable on both themes. -->
 	<color name="logic_high">#1B8A3A</color>
 	<color name="logic_low">#8A9590</color>

@@ -32,7 +32,7 @@ public static partial class ReferenceCatalog
                 TableStyle.Cards)),
             new("Powering a board", "Most 5 V boards accept 7 to 12 V on the barrel jack or VIN pin, or 5 V over USB. Keep the current from any one pin of an ATmega board below 20 mA, and far lower on 3.3 V ARM boards."),
         ],
-        Footnote: "Specifications are from the manufacturer's published figures and can differ between board revisions and clones.");
+        Footnote: "Specifications are from the manufacturer's published figures and can differ between board revisions and clones. Arduino is a trademark of Arduino S.r.l. Electronic Helper is not affiliated with or endorsed by Arduino.");
 
     private static ReferenceDoc ArduinoUnoPins() => new(
         "arduino-uno-pins",
@@ -72,7 +72,8 @@ public static partial class ReferenceCatalog
                 ["RESET", "Pull low to reset the board"]),
                 Weights: [1, 3])),
             new("Limits", "Each I/O pin can supply 20 mA continuously and 40 mA at the very most. The whole chip must stay under 200 mA."),
-        ]);
+        ],
+        Footnote: "Arduino is a trademark of Arduino S.r.l. Electronic Helper is not affiliated with or endorsed by Arduino.");
 
     private static ReferenceDoc RaspberryPiGpio() => new(
         "raspberry-pi-gpio",
@@ -101,7 +102,8 @@ public static partial class ReferenceCatalog
                 ["39", "Ground", "40", "GPIO 21"]),
                 Weights: [1, 3, 1, 3])),
             new("Limits", "GPIO pins use 3.3 V logic and are not 5 V tolerant: a 5 V signal can destroy the processor. Draw no more than 16 mA from one pin and about 50 mA from all of them together. Pins 27 and 28 are reserved for add-on board identification."),
-        ]);
+        ],
+        Footnote: "Raspberry Pi is a trademark of Raspberry Pi Ltd. Electronic Helper is not affiliated with or endorsed by Raspberry Pi.");
 
     private static ReferenceDoc UsbConnectors() => new(
         "usb-connectors",

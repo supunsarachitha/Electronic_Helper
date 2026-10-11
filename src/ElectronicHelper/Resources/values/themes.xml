@@ -36,6 +36,39 @@
 		<item name="colorOnSurfaceInverse">@color/md_inverse_on_surface</item>
 	</style>
 
+	<!-- A pill-shaped search field with no outline or underline. -->
+	<style name="Widget.ElectronicHelper.Search" parent="Widget.Material3.TextInputLayout.FilledBox.Dense">
+		<item name="boxBackgroundColor">?attr/colorSurfaceContainerHigh</item>
+		<item name="boxStrokeWidth">0dp</item>
+		<item name="boxStrokeWidthFocused">0dp</item>
+		<item name="boxCornerRadiusTopStart">28dp</item>
+		<item name="boxCornerRadiusTopEnd">28dp</item>
+		<item name="boxCornerRadiusBottomStart">28dp</item>
+		<item name="boxCornerRadiusBottomEnd">28dp</item>
+		<item name="hintEnabled">false</item>
+	</style>
+
+	<!-- The small coloured heading above a group of content. -->
+	<style name="Widget.ElectronicHelper.SectionLabel" parent="">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginTop">24dp</item>
+		<item name="android:layout_marginBottom">10dp</item>
+		<item name="android:textAppearance">?attr/textAppearanceLabelLarge</item>
+		<item name="android:textColor">?attr/colorPrimary</item>
+		<item name="android:textAllCaps">true</item>
+		<item name="android:letterSpacing">0.08</item>
+		<item name="android:accessibilityHeading">true</item>
+	</style>
+
+	<!-- A flat tonal panel that groups related content. -->
+	<style name="Widget.ElectronicHelper.Panel" parent="Widget.Material3.CardView.Filled">
+		<item name="cardBackgroundColor">?attr/colorSurfaceContainerLow</item>
+		<item name="cardCornerRadius">20dp</item>
+		<item name="strokeColor">?attr/colorOutlineVariant</item>
+		<item name="strokeWidth">1dp</item>
+	</style>
+
 	<!-- Shown by the system while the app starts, then swapped for the theme above. -->
 	<style name="Theme.ElectronicHelper.Starting" parent="Theme.SplashScreen">
 		<item name="windowSplashScreenBackground">@color/md_surface</item>

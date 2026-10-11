@@ -31,6 +31,22 @@
 	<color name="md_inverse_on_surface">#2B322E</color>
 	<color name="md_inverse_primary">#006C51</color>
 
+	<!-- One accent per tool category, used for the icon tiles. -->
+	<color name="cat_basics_container">#00513C</color>
+	<color name="cat_basics_on_container">#8BF8D0</color>
+	<color name="cat_components_container">#5C4300</color>
+	<color name="cat_components_on_container">#FFDF8A</color>
+	<color name="cat_signals_container">#264777</color>
+	<color name="cat_signals_on_container">#D6E3FF</color>
+	<color name="cat_power_container">#6B2F14</color>
+	<color name="cat_power_on_container">#FFDBCC</color>
+	<color name="cat_digital_container">#4A2A82</color>
+	<color name="cat_digital_on_container">#EBDCFF</color>
+	<color name="cat_connectors_container">#004E5A</color>
+	<color name="cat_connectors_on_container">#A6EEFB</color>
+	<color name="cat_learn_container">#6B2540</color>
+	<color name="cat_learn_on_container">#FFD9E4</color>
+
 	<color name="logic_high">#5BD67A</color>
 	<color name="logic_low">#5F6A65</color>
 	<color name="resistor_body">#CDB68C</color>

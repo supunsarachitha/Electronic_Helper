@@ -7,6 +7,7 @@ using AndroidX.Core.Widget;
 using ElectronicHelper.Core;
 using Google.Android.Material.Chip;
 using Google.Android.Material.Snackbar;
+using Color = Android.Graphics.Color;
 
 namespace ElectronicHelper;
 
@@ -45,6 +46,22 @@ internal static class Ui
         _ => new Java.Lang.String(argument.ToString() ?? ""),
     };
 
+    /// <summary>The background and foreground colours of a category's icon tile.</summary>
+    public static (Color Container, Color OnContainer) CategoryColors(this Context context, ToolCategory category)
+    {
+        var (container, onContainer) = category switch
+        {
+            ToolCategory.Basics => (Resource.Color.cat_basics_container, Resource.Color.cat_basics_on_container),
+            ToolCategory.Components => (Resource.Color.cat_components_container, Resource.Color.cat_components_on_container),
+            ToolCategory.Signals => (Resource.Color.cat_signals_container, Resource.Color.cat_signals_on_container),
+            ToolCategory.Power => (Resource.Color.cat_power_container, Resource.Color.cat_power_on_container),
+            ToolCategory.Digital => (Resource.Color.cat_digital_container, Resource.Color.cat_digital_on_container),
+            ToolCategory.Connectors => (Resource.Color.cat_connectors_container, Resource.Color.cat_connectors_on_container),
+            _ => (Resource.Color.cat_learn_container, Resource.Color.cat_learn_on_container),
+        };
+        return (new Color(ContextCompat.GetColor(context, container)), new Color(ContextCompat.GetColor(context, onContainer)));
+    }
+
     public static Chip AddFilterChip(this ChipGroup group, LayoutInflater inflater, string text, bool isChecked, Action onChecked)
     {
         var chip = (Chip)inflater.Inflate(Resource.Layout.chip_filter, group, false)!;
@@ -66,6 +83,8 @@ internal static class Ui
         lines.RemoveAllViews();
         foreach (var line in results)
         {
+            if (lines.ChildCount > 0) lines.AddView(Divider(activity));
+
             var row = activity.LayoutInflater.Inflate(Resource.Layout.item_result, lines, false)!;
             row.FindViewById<TextView>(Resource.Id.result_label)!.Text = line.Label;
             row.FindViewById<TextView>(Resource.Id.result_value)!.Text = line.Value;
@@ -76,9 +95,15 @@ internal static class Ui
 
         message.Text = note;
         message.Visibility = string.IsNullOrEmpty(note) ? ViewStates.Gone : ViewStates.Visible;
-        message.SetTextColor(new Android.Graphics.Color(activity.ThemeColor(
+        message.SetTextColor(new Color(activity.ThemeColor(
             isError ? Resource.Attribute.colorError : Resource.Attribute.colorOnSurfaceVariant)));
     }
+
+    private static View Divider(Context context) => new(context)
+    {
+        LayoutParameters = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent, context.Dp(1)),
+        Background = new Android.Graphics.Drawables.ColorDrawable(new Color(context.ThemeColor(Resource.Attribute.colorOutlineVariant))),
+    };
 
     public static void OpenUrl(this Context context, string url) =>
         Start(context, new Intent(Intent.ActionView, Android.Net.Uri.Parse(url)));

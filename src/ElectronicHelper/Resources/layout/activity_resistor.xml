@@ -33,26 +33,31 @@
 			android:orientation="vertical"
 			android:padding="16dp">
 
-			<lk.stechbuzz.electronic.ResistorView
-				android:id="@+id/resistor_view"
+			<com.google.android.material.card.MaterialCardView
+				style="@style/Widget.ElectronicHelper.Panel"
 				android:layout_width="match_parent"
-				android:layout_height="112dp"
-				android:layout_marginBottom="8dp" />
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="12dp">
+
+				<lk.stechbuzz.electronic.ResistorView
+					android:id="@+id/resistor_view"
+					android:layout_width="match_parent"
+					android:layout_height="132dp"
+					android:layout_marginHorizontal="12dp" />
+			</com.google.android.material.card.MaterialCardView>
 
 			<com.google.android.material.card.MaterialCardView
 				android:id="@+id/result_card"
-				style="@style/Widget.Material3.CardView.Filled"
+				style="@style/Widget.ElectronicHelper.Panel"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="8dp"
-				app:cardBackgroundColor="?attr/colorSurfaceContainerHigh">
+				android:layout_height="wrap_content">
 
 				<LinearLayout
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:orientation="vertical"
-					android:paddingHorizontal="16dp"
-					android:paddingVertical="12dp">
+					android:paddingHorizontal="18dp"
+					android:paddingVertical="8dp">
 
 					<LinearLayout
 						android:id="@+id/result_lines"
@@ -64,19 +69,15 @@
 						android:id="@+id/result_message"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:paddingVertical="4dp"
+						android:paddingVertical="10dp"
 						android:textAppearance="?attr/textAppearanceBodyMedium"
 						android:textColor="?attr/colorOnSurfaceVariant" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 
 			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="20dp"
-				android:text="@string/resistor_bands_label"
-				android:textAppearance="?attr/textAppearanceLabelLarge"
-				android:textColor="?attr/colorOnSurfaceVariant" />
+				style="@style/Widget.ElectronicHelper.SectionLabel"
+				android:text="@string/label_bands" />
 
 			<com.google.android.material.chip.ChipGroup
 				android:id="@+id/band_count_chips"
@@ -92,12 +93,15 @@
 				android:layout_height="wrap_content"
 				android:orientation="vertical" />
 
+			<TextView
+				style="@style/Widget.ElectronicHelper.SectionLabel"
+				android:text="@string/label_set_value" />
+
 			<com.google.android.material.textfield.TextInputLayout
 				android:id="@+id/value_layout"
 				style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="8dp"
 				android:hint="@string/resistor_value_hint"
 				app:endIconMode="clear_text"
 				app:suffixText="Ω">

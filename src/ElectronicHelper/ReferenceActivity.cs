@@ -69,8 +69,9 @@ public class ReferenceActivity : BaseActivity
             }
             else
             {
-                items.Add(new GridItem(section.Table, null, false));
-                items.AddRange(rows.Select((row, index) => new GridItem(section.Table, row, index % 2 == 1)));
+                items.Add(new GridItem(section.Table, null, false, rows.Count == 0));
+                items.AddRange(rows.Select((row, index) =>
+                    new GridItem(section.Table, row, index % 2 == 1, index == rows.Count - 1)));
             }
         }
 
@@ -87,8 +88,11 @@ internal abstract record Item;
 
 internal sealed record TextItem(string Text, TextRole Role) : Item;
 
-/// <summary>A grid table's header (when <see cref="Row"/> is null) or one of its rows.</summary>
-internal sealed record GridItem(RefTable Table, int? Row, bool Shaded) : Item;
+/// <summary>
+/// A grid table's header (when <see cref="Row"/> is null) or one of its rows. Together the rows of a table
+/// draw as one rounded panel, so each needs to know whether it closes the panel.
+/// </summary>
+internal sealed record GridItem(RefTable Table, int? Row, bool Shaded, bool IsLast) : Item;
 
 internal sealed record CardItem(RefTable Table, int Row) : Item;
 
@@ -124,6 +128,7 @@ internal sealed class ReferenceAdapter(Activity activity) : RecyclerView.Adapter
                 return new Holder(new TextView(activity) { LayoutParameters = matchWidth });
 
             case GridType:
+                matchWidth.SetMargins(activity.Dp(16), 0, activity.Dp(16), 0);
                 return new Holder(new LinearLayout(activity)
                 {
                     LayoutParameters = matchWidth,
@@ -134,7 +139,11 @@ internal sealed class ReferenceAdapter(Activity activity) : RecyclerView.Adapter
             {
                 var margin = activity.Dp(16);
                 matchWidth.SetMargins(margin, activity.Dp(4), margin, activity.Dp(4));
-                var card = new MaterialCardView(activity) { LayoutParameters = matchWidth };
+                var card = new MaterialCardView(activity) { LayoutParameters = matchWidth, Radius = activity.Dp(16) };
+                card.SetCardBackgroundColor(activity.ThemeColor(Resource.Attribute.colorSurfaceContainerLow));
+                card.StrokeColor = activity.ThemeColor(Resource.Attribute.colorOutlineVariant);
+                card.StrokeWidth = activity.Dp(1);
+                card.CardElevation = 0;
                 var content = new LinearLayout(activity) { Orientation = Orientation.Vertical };
                 content.SetPadding(margin, activity.Dp(12), margin, activity.Dp(12));
                 card.AddView(content);
@@ -172,10 +181,10 @@ internal sealed class ReferenceAdapter(Activity activity) : RecyclerView.Adapter
         var edge = activity.Dp(16);
         var (style, color, top, bottom) = item.Role switch
         {
-            TextRole.Heading => (Resource.Attribute.textAppearanceTitleMedium, Resource.Attribute.colorPrimary, 24, 8),
+            TextRole.Heading => (Resource.Attribute.textAppearanceTitleMedium, Resource.Attribute.colorOnSurface, 28, 10),
             TextRole.Intro => (Resource.Attribute.textAppearanceBodyLarge, Resource.Attribute.colorOnSurface, 8, 8),
             TextRole.Footnote => (Resource.Attribute.textAppearanceBodySmall, Resource.Attribute.colorOnSurfaceVariant, 24, 8),
-            _ => (Resource.Attribute.textAppearanceBodyMedium, Resource.Attribute.colorOnSurfaceVariant, 4, 8),
+            _ => (Resource.Attribute.textAppearanceBodyMedium, Resource.Attribute.colorOnSurfaceVariant, 0, 12),
         };
         view.Text = item.Text;
         view.SetTextStyle(style);
@@ -191,11 +200,18 @@ internal sealed class ReferenceAdapter(Activity activity) : RecyclerView.Adapter
         var cells = isHeader ? table.Headers : table.Rows[item.Row!.Value];
 
         row.RemoveAllViews();
-        row.SetPadding(activity.Dp(16), activity.Dp(isHeader ? 8 : 10), activity.Dp(16), activity.Dp(isHeader ? 8 : 10));
+        row.SetPadding(activity.Dp(16), activity.Dp(isHeader ? 12 : 11), activity.Dp(8), activity.Dp(isHeader ? 12 : 11));
         row.SetGravity(GravityFlags.CenterVertical);
-        row.SetBackgroundColor(item.Shaded
-            ? new Color(activity.ThemeColor(Resource.Attribute.colorSurfaceContainerLow))
-            : Color.Transparent);
+
+        // Round only the outer corners: the top of the header and the bottom of the last row.
+        float top = isHeader ? activity.Dp(16) : 0, bottom = item.IsLast ? activity.Dp(16) : 0;
+        var panel = new GradientDrawable();
+        panel.SetCornerRadii([top, top, top, top, bottom, bottom, bottom, bottom]);
+        panel.SetColor(new Color(activity.ThemeColor(
+            isHeader ? Resource.Attribute.colorSurfaceContainerHighest
+            : item.Shaded ? Resource.Attribute.colorSurfaceContainer
+            : Resource.Attribute.colorSurfaceContainerLow)));
+        row.Background = panel;
 
         if (table.Swatches is not null)
             row.AddView(Swatch(isHeader ? null : table.Swatches[item.Row!.Value]));
@@ -204,8 +220,7 @@ internal sealed class ReferenceAdapter(Activity activity) : RecyclerView.Adapter
         {
             var cell = new TextView(activity) { Text = cells[i] };
             cell.SetTextStyle(isHeader ? Resource.Attribute.textAppearanceLabelLarge : Resource.Attribute.textAppearanceBodyMedium);
-            cell.SetTextColor(new Color(activity.ThemeColor(
-                isHeader ? Resource.Attribute.colorOnSurfaceVariant : Resource.Attribute.colorOnSurface)));
+            cell.SetTextColor(new Color(activity.ThemeColor(Resource.Attribute.colorOnSurface)));
             cell.SetPadding(0, 0, activity.Dp(8), 0);
             row.AddView(cell, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WrapContent, table.Weights?[i] ?? 1));
         }

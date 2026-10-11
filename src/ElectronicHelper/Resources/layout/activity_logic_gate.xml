@@ -41,35 +41,49 @@
 				app:selectionRequired="true"
 				app:singleSelection="true" />
 
-			<lk.stechbuzz.electronic.GateView
-				android:id="@+id/gate_view"
-				android:layout_width="match_parent"
-				android:layout_height="176dp"
-				android:layout_marginTop="8dp" />
-
-			<com.google.android.material.materialswitch.MaterialSwitch
-				android:id="@+id/switch_a"
+			<com.google.android.material.card.MaterialCardView
+				style="@style/Widget.ElectronicHelper.Panel"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:minHeight="48dp"
-				android:text="@string/gate_input_a"
-				android:textAppearance="?attr/textAppearanceBodyLarge" />
+				android:layout_marginTop="12dp">
 
-			<com.google.android.material.materialswitch.MaterialSwitch
-				android:id="@+id/switch_b"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:minHeight="48dp"
-				android:text="@string/gate_input_b"
-				android:textAppearance="?attr/textAppearanceBodyLarge" />
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					android:paddingHorizontal="18dp"
+					android:paddingBottom="12dp">
+
+					<lk.stechbuzz.electronic.GateView
+						android:id="@+id/gate_view"
+						android:layout_width="match_parent"
+						android:layout_height="176dp" />
+
+					<com.google.android.material.materialswitch.MaterialSwitch
+						android:id="@+id/switch_a"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:minHeight="48dp"
+						android:text="@string/gate_input_a"
+						android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+					<com.google.android.material.materialswitch.MaterialSwitch
+						android:id="@+id/switch_b"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:minHeight="48dp"
+						android:text="@string/gate_input_b"
+						android:textAppearance="?attr/textAppearanceBodyLarge" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
 
 			<TextView
 				android:id="@+id/gate_output"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginTop="8dp"
+				android:layout_marginTop="20dp"
 				android:accessibilityLiveRegion="polite"
-				android:textAppearance="?attr/textAppearanceTitleLarge"
+				android:textAppearance="?attr/textAppearanceHeadlineSmall"
 				android:textColor="?attr/colorOnSurface" />
 
 			<TextView
@@ -90,20 +104,21 @@
 				android:textColor="?attr/colorOnSurfaceVariant" />
 
 			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="24dp"
-				android:layout_marginBottom="8dp"
-				android:accessibilityHeading="true"
-				android:text="@string/gate_truth_table"
-				android:textAppearance="?attr/textAppearanceTitleSmall"
-				android:textColor="?attr/colorPrimary" />
+				style="@style/Widget.ElectronicHelper.SectionLabel"
+				android:text="@string/gate_truth_table" />
 
-			<TableLayout
-				android:id="@+id/truth_table"
+			<com.google.android.material.card.MaterialCardView
+				style="@style/Widget.ElectronicHelper.Panel"
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:stretchColumns="*" />
+				android:layout_height="wrap_content">
+
+				<TableLayout
+					android:id="@+id/truth_table"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:stretchColumns="*" />
+			</com.google.android.material.card.MaterialCardView>
+
 
 		</LinearLayout>
 	</androidx.core.widget.NestedScrollView>

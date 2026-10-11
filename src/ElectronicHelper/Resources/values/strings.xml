@@ -2,7 +2,8 @@
 <resources>
 	<string name="app_name">Electronic Helper</string>
 
-	<string name="search_hint">Search tools</string>
+	<string name="search_hint">Search %1$d tools</string>
+	<string name="app_tagline">Calculators and reference for electronics</string>
 	<string name="filter_all">All</string>
 	<string name="filter_favorites">Favourites</string>
 	<string name="section_favorites">Favourites</string>
@@ -17,6 +18,11 @@
 	<string name="menu_privacy">Privacy policy</string>
 	<string name="menu_about">About</string>
 	<string name="menu_reset">Reset</string>
+	<string name="label_formula">Formula</string>
+	<string name="label_inputs">Inputs</string>
+	<string name="label_results">Results</string>
+	<string name="label_bands">Bands</string>
+	<string name="label_set_value">Set from a value</string>
 	<string name="menu_share_result">Share result</string>
 
 	<string name="navigate_up">Back</string>
@@ -37,7 +43,7 @@
 
 	<string name="resistor_bands_label">Number of bands</string>
 	<string name="resistor_band_count">%1$d bands</string>
-	<string name="resistor_value_hint">Or type a value, such as 4.7k</string>
+	<string name="resistor_value_hint">Value, such as 4.7k</string>
 	<string name="resistor_digit">Digit %1$d</string>
 	<string name="resistor_multiplier">Multiplier</string>
 	<string name="resistor_tolerance">Tolerance</string>
