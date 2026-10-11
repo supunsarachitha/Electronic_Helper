@@ -50,7 +50,10 @@ dotnet build src/ElectronicHelper -t:Install \
   -p:JavaSdkDirectory=/path/to/jdk -p:AndroidSdkDirectory=/path/to/android/sdk
 ```
 
-To produce a signed bundle for Google Play, see [RELEASING.md](RELEASING.md).
+Release signing is set up in `src/ElectronicHelper/signing.local.props`, which is git-ignored. Copy
+[signing.local.props.example](src/ElectronicHelper/signing.local.props.example), fill in your keystore's details,
+and never commit a keystore or its passwords. Without that file, a release build is signed with the debug key.
+[RELEASING.md](RELEASING.md) has the full steps for Google Play.
 
 ## How the code is organised
 

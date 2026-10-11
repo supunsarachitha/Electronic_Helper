@@ -19,23 +19,26 @@ On 10 October 2026 neither `lk.stechbuzz.electronic` (the ID the app has always 
 - If the app is not in your account at all, create a new app and use `lk.stechbuzz.electronic` as its package
   name.
 
-### 2. Find the signing key
+### 2. Confirm the signing key
 
-An update must be signed with the same upload key as the version before it. Version 1.9 was signed with
-`supun.keystore`, which the old project file placed at:
+Release builds are signed with the developer's own upload key, `supun.keystore` (alias `supun`), the same key
+Falcon Notes is signed with. The 2.0.0 files were signed with the certificate:
 
 ```
-C:\Users\sliyanaarachchi\AppData\Local\Xamarin\Mono for Android\Keystore\supun\supun.keystore
+CN=Supun Sarachitha Liyanaarachchi
+SHA-256 57:82:1C:87:7B:48:AD:19:0B:73:18:3F:DB:E7:F1:1E:C8:E6:FB:11:06:23:35:14:AE:5E:69:40:C0:05:09:8D
 ```
 
-- **You have the keystore and its passwords:** use it as described below.
-- **You have lost it, and the app uses Play App Signing:** ask Google for an upload key reset under
-  **Setup → App signing → Request upload key reset**. It takes a few days.
-- **You have lost it, and the app does not use Play App Signing:** the existing listing cannot be updated. The
+An update must be signed with the same upload key as the version before it. Version 1.9 was signed with a
+keystore of the same name, but no signed copy of 1.9 survives in the repository to compare against. Check under
+**Setup → App signing** in Play Console that the upload certificate's SHA-256 fingerprint matches the one above.
+
+- **It matches:** upload the bundle.
+- **It does not match, and the app uses Play App Signing:** ask Google for an upload key reset on that same page,
+  giving this key's certificate. It takes a few days.
+- **It does not match, and the app does not use Play App Signing:** the existing listing cannot be updated. The
   app has to be published as a new app under a new package name, which means changing `ApplicationId` in
   [ElectronicHelper.csproj](src/ElectronicHelper/ElectronicHelper.csproj).
-
-Keep the keystore out of the repository. `.gitignore` already excludes `*.keystore` and `*.jks`.
 
 ## Build a signed bundle
 
@@ -49,29 +52,37 @@ Keep the keystore out of the repository. `.gitignore` already excludes `*.keysto
    dotnet test
    ```
 
-3. Build, giving the keystore through environment variables so that no secret is written to disk.
+3. Set up signing, once per machine. Copy
+   [signing.local.props.example](src/ElectronicHelper/signing.local.props.example) to
+   `src/ElectronicHelper/signing.local.props` and fill in the keystore's path, alias and passwords. The file is
+   git-ignored: never commit it, or a keystore.
+
+4. Publish.
 
    ```bash
-   export ANDROID_KEYSTORE_PATH=/path/to/supun.keystore
-   export ANDROID_KEY_ALIAS=your-key-alias
-   export ANDROID_KEYSTORE_PASSWORD='...'
-   export ANDROID_KEY_PASSWORD='...'
-
-   dotnet build src/ElectronicHelper -c Release
+   dotnet publish src/ElectronicHelper -c Release -f net10.0-android
    ```
 
-   The bundle to upload is:
+   This writes both files to `src/ElectronicHelper/bin/Release/net10.0-android/publish/`:
 
-   ```
-   src/ElectronicHelper/bin/Release/net10.0-android/lk.stechbuzz.electronic-Signed.aab
-   ```
+   | File | Use |
+   |---|---|
+   | `lk.stechbuzz.electronic-Signed.aab` | Upload to Google Play |
+   | `lk.stechbuzz.electronic-Signed.apk` | Install directly, to test the release build |
 
-   Without those variables the build still succeeds, but signs with the debug key. Play rejects that.
+   Without `signing.local.props` the build still succeeds, but signs with the debug key. Play rejects that.
 
-4. Install the matching APK on a real phone and try it before uploading.
+5. Check which key signed the bundle.
 
    ```bash
-   adb install -r src/ElectronicHelper/bin/Release/net10.0-android/lk.stechbuzz.electronic-Signed.apk
+   keytool -printcert -jarfile src/ElectronicHelper/bin/Release/net10.0-android/publish/lk.stechbuzz.electronic-Signed.aab
+   ```
+
+6. Install the APK on a real phone and try it before uploading. A phone that already has a debug build must have
+   it uninstalled first, because Android will not replace an app with one signed by a different key.
+
+   ```bash
+   adb install src/ElectronicHelper/bin/Release/net10.0-android/publish/lk.stechbuzz.electronic-Signed.apk
    ```
 
 ## What the build already satisfies

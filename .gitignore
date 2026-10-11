@@ -22,7 +22,9 @@ TestResults/
 *.trx
 coverage*.xml
 
-# Android signing material and packaged apps - never commit these
+# Android signing material and packaged apps - never commit these.
+# signing.local.props holds the keystore passwords.
+signing.local.props
 *.keystore
 *.jks
 *.p12
