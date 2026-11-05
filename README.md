@@ -4,9 +4,11 @@ Calculators and reference tables for electronics, in one free Android app. It wo
 adverts and asks for no permissions.
 
 [Website](https://supunsarachitha.github.io/Electronic_Helper/) ·
-[Google Play](https://play.google.com/store/apps/details?id=lk.stechbuzz.electronic) ·
 [Privacy policy](https://supunsarachitha.github.io/Electronic_Helper/privacy.html) ·
 [Changelog](CHANGELOG.md)
+
+Version 2.0.0 is not on Google Play yet (the old listing is not public), so for now build it from source, as
+described below. [RELEASING.md](RELEASING.md) covers getting it back on the store.
 
 <p>
   <img src="docs/assets/screenshots/1-home.jpg" width="200" alt="Home screen listing the tools">
